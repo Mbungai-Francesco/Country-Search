@@ -36,6 +36,6 @@ export function classer(classes : string) {
     })
     // console.log(inBreaks);
     // console.log(splitedClasses);
-    console.log(endClasses.join(' '));
+    // console.log(endClasses.join(' '));
     return endClasses.join(' ')
 }

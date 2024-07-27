@@ -1,8 +1,6 @@
+import { FilterlistProps } from "../../types/FilterlistProps";
 import { classer } from "../../utility/classer";
 
-interface FilterlistProps{
-    continent: string;
-}
 // className={classer('')}
 
 function Filterlist({continent}: FilterlistProps){
