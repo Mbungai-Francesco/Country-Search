@@ -27,6 +27,12 @@ interface IAllDataItem {
         svg: string
     };
     population: number;
+    continents: string[];
+    idd: {
+        root: string,
+        suffixes: string[]
+    };
+    latlng: number[];
 }
 
 export type { IAllDataItem }

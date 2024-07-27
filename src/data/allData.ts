@@ -3,7 +3,7 @@ import { IAllDataItem } from "../types/IAllDataItem";
 var countries: IAllDataItem[]
 
 async function fetchAllData(): Promise<IAllDataItem[]> {
-    const url = 'https://restcountries.com/v3.1/all?fields=name,nativeName,population,region,subregion,capital,topLevelDomain,currencies,languages,borders,flags';
+    const url = 'https://restcountries.com/v3.1/all?fields=name,nativeName,population,region,subregion,capital,topLevelDomain,currencies,languages,borders,flags,continents,idd,latlng';
     
     try {
         const response = await fetch(url);
@@ -20,7 +20,7 @@ async function fetchAllData(): Promise<IAllDataItem[]> {
 
 fetchAllData().then(data => {
     // console.log(data);
-    countries = data
+    countries = data.splice(0, 50);
 }).catch(error => {
     console.error('Error:', error);
 });
