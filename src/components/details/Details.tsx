@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { IAllDataItem } from "../../types/IAllDataItem"
 import { countries } from "../../data/allData"
 import { classer } from "../../utility/classer"
@@ -11,10 +11,12 @@ function Details() {
         return (
             <>
                 <div>
-                    <label htmlFor="" className={classer('text-white bg-myBlue-dark py-1 px-5 flex w-fit text-xs items-center')}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-arrow-left opacity-50"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                        <input className={classer('ml-2 opacity-50')} type="button" value="Back" />
-                    </label>
+                    <Link to='/'>
+                        <label htmlFor="" className={classer('text-white bg-myBlue-dark py-1 px-5 flex w-fit text-xs items-center cursor-pointer')}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-arrow-left opacity-50"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            <input className={classer('ml-2 opacity-50')} type="button" value="Back" />
+                        </label>
+                    </Link>
                 </div>
                 <div className={classer('text-white flex mt-8 justify-between')}>
                     <div className={classer('w-2/5')}>
@@ -35,6 +37,9 @@ function Details() {
                                 <p className={classer('mb-2')}><span className={classer('font-semibold')}>Languages: </span>
                                     <span className={classer('opacity-50')}>{Object.values(country.languages).join(', ')}</span>
                                 </p>
+                                {/* <p className={classer('mb-2')}><span className={classer('font-semibold')}>Borders: </span>
+                                    <span className={classer('opacity-50')}>{country.borders.concat(' ')}</span>
+                                </p> */}
                             </div>
                         </div>
                     </div>

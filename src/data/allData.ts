@@ -1,4 +1,5 @@
 import { IAllDataItem } from "../types/IAllDataItem";
+import Home from "../components/home/Home";
 
 var countries: IAllDataItem[]
 
@@ -20,7 +21,7 @@ async function fetchAllData(): Promise<IAllDataItem[]> {
 
 fetchAllData().then(data => {
     // console.log(data);
-    countries = data.splice(0, 50);
+    countries = data;
 }).catch(error => {
     console.error('Error:', error);
 });
