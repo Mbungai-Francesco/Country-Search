@@ -1,8 +1,7 @@
-import Home from './components/home/Home'
-import Details from "./components/details/Details";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import { useState } from 'react'
 import { classer } from './utility/classer'
+import router from './main'
 import './index.css'
 import './App.css'
 
@@ -22,15 +21,10 @@ function App() {
           <p className={classer('ml-2')}>Dark Mode</p>
         </div>
       </header>
-      <div className={classer('bg-myBlue-very_dark1 min-h-screen px-20 py-10 relative z-0')}> 
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/details:id" element={<Details/>} />
-          </Routes>  
-        </Router> 
+      <div className={classer('bg-myBlue-very_dark1 min-h-screen px-20 py-10 relative z-0')}>   
+        <RouterProvider router={router}/>
       </div>
-    </>
+    </> 
   )
 }
 

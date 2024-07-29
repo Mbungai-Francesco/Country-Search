@@ -52,7 +52,7 @@ function Home (){
                     onClick={searchBarToggle}>
                         <p className={classer('text-xs mr-8')}>Filter by Region</p> 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className={classer("feather feather-chevron-down")}><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </div>
+                    </div> 
                     <div className={searchBar}>
                         {continents.map((continent) => {
                             return <Filterlist
@@ -67,13 +67,14 @@ function Home (){
             <div className={classer('grid gap-4 grid-cols-4')}>
                 {
                     inCountries.map(country => {
-                        const countryId = country.idd.root + country.idd.suffixes[0]
-                        // const countryId = String(country.latlng[0]) + String(country.latlng[1])
-                        return <Link to={`/details/${countryId}`} key={countryId}>
-                            {<Country 
+                        // const countryId = country.idd.root + country.idd.suffixes[0]
+                        const countryId = String(country.latlng[0]) + String(country.latlng[1])
+                        // const countryId = String(country.latlng[0]) 
+                        return <Link to={`/:${countryId}`} key={countryId}>
+                            {<Country  
                             key={countryId}
                             {...country}></Country>}
-                        </Link>
+                        </Link> 
                     }) 
                 }
             </div>
