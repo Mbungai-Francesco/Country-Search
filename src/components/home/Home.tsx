@@ -2,7 +2,6 @@ import Filterlist from "../filterList/Filterlist"
 import Country from "../country/Country";
 import { classer } from "../../utility/classer"
 import { IContinent } from "../../types/IContinent";
-import { IAllDataItem } from "../../types/IAllDataItem";
 import { countries } from "../../data/allData";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
