@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -13,7 +14,7 @@ export default {
           very_dark2: 'hsl(200, 15%, 8%)',
         },     // Custom color with a name
         'myGrey': {
-          dark_gray: 'hsl(0, 0%, 52%)',
+          dark_gray: 'hsl(0, 0%, 95%)',
           light_gray: 'hsl(0, 0%, 98%)',
         },    // Another custom color
       },
