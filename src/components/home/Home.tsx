@@ -31,8 +31,7 @@ function Home (){
     }
 
     const searchbyName = () =>{
-        var val : string = inputRef.current?.value.toLocaleLowerCase() || "";
-        var len = val.length;
+        const val : string = inputRef.current?.value.toLocaleLowerCase() || "";
         setinCountries(country => 
             countries.filter(country => country.name.common.toLocaleLowerCase().startsWith(val))
         )
@@ -47,8 +46,8 @@ function Home (){
     
     return ( 
         <>
-            <div className={classer('flex justify-between mb-8')}>
-                <label htmlFor="" className={classer('flex py-2 px-4 items-start bg-white dark:bg-myBlue-dark')}>
+            <div className={classer('mb-8 sm:flex justify-between')}>
+                <label htmlFor="" className={classer('mb-4 flex py-2 px-4 items-start bg-white dark:bg-myBlue-dark sm:mb-0')}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className={classer("feather feather-search text-gray-500 black:text-white")}><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     <input className={classer('ml-2 bg-transparent w-80 outline-none text-gray-500 black:text-gray-400 text-xs font-medium black:font-normal')} 
                         ref={inputRef} 
@@ -58,7 +57,7 @@ function Home (){
                         placeholder="Search for a country..." id="" />
                 </label>
                 <div className={classer('relative text-gray-500')}>
-                    <div  className={classer('flex py-2 px-4 items-start bg-white dark:bg-myBlue-dark cursor-pointer')} 
+                    <div  className={classer('flex justify-between py-2 px-4 items-start bg-white dark:bg-myBlue-dark cursor-pointer')} 
                     onClick={searchBarToggle}>
                         <p className={classer('text-xs mr-8')}>Filter by Region</p> 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className={classer("feather feather-chevron-down")}><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -74,16 +73,18 @@ function Home (){
                     </div> 
                 </div>
             </div>
-            <div className={classer('grid gap-4 grid-cols-4')}>
-                {
-                    inCountries?.map(country => {
+            <div className={classer(' grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4')}>
+                {   inCountries ? inCountries?.map(country => {
                         const countryId = String(country.latlng[0]) + String(country.latlng[1])
                         return <Link to={`/:${countryId}`} key={countryId}>
                             {<Country  
                             key={countryId}
                             {...country}></Country>}
                         </Link> 
-                    }) 
+                    }) :
+                    <div className={classer(' text-2xl font-bold m-0 text-black')}>
+                        Make search
+                    </div>
                 }
             </div>
         </> 

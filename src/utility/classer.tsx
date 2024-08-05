@@ -1,10 +1,10 @@
 export function classer(classes : string) {
     const breaks : string[]  = ['sm:','md:','lg:','xl:','2xl:']
-    var inBreaks : string[] = [];
-    var endClasses : string[] = [];
-    var concat : boolean = false
-    var val : string = ''
-    var toNext : boolean = false
+    const inBreaks : string[] = [];
+    const endClasses : string[] = [];
+    let concat : boolean = false
+    let val : string = ''
+    let toNext : boolean = false
     breaks.map((item) => {
         if(classes.includes(item)){
             inBreaks.push(item)

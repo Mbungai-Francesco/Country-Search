@@ -18,14 +18,14 @@ function Details() {
                         </label>
                     </Link>
                 </div>
-                <div className={classer('text-white flex mt-8 justify-between')}>
-                    <div className={classer('w-2/5')}>
+                <div className={classer('text-white mt-8 sm:flex justify-between')}>
+                    <div className={classer('w-full mb-4 sm:w-2/5 mb-0')}>
                         <img className={classer('w-full')} src={country.flags.png} alt={country.name.common} />
                     </div>
-                    <div className={classer('w-1/2 text-black dark:text-white')}>
+                    <div className={classer('w-full text-black dark:text-white sm:w-1/2')}>
                         <h1 className={classer('font-bold text-lg mb-4')}>{country.name.common}</h1>
                         <div className={classer('text-xs flex justify-between')}>
-                            <div>
+                            <div className={classer('mr-2 sm:mr-0')}>
                                 <p className={classer('mb-2')}><span className={classer('font-semibold')}>Native Name:</span>  <span className={classer('opacity-50')}>{Object.values(country.name.nativeName)[0].common}</span></p>
                                 <p className={classer('mb-2')}><span className={classer('font-semibold')}>Population:</span>  <span className={classer('opacity-50')}>{country.population}</span></p>
                                 <p className={classer('mb-2')}><span className={classer('font-semibold')}>Region:</span> <span className={classer('opacity-50')}>{country.region}</span></p>
