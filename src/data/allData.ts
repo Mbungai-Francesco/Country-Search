@@ -1,7 +1,6 @@
 import { IAllDataItem } from "../types/IAllDataItem";
-import Home from "../components/home/Home";
 
-var countries: IAllDataItem[]
+let countries: IAllDataItem[]
 
 async function fetchAllData(): Promise<IAllDataItem[]> {
     const url = 'https://restcountries.com/v3.1/all?fields=name,nativeName,population,region,subregion,capital,topLevelDomain,currencies,languages,borders,flags,continents,idd,latlng';

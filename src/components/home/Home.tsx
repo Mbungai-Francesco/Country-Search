@@ -22,23 +22,20 @@ function Home (){
         { id: 7, name: "South America" }
     ];
 
-    const searchBarToggle = ( ...val: any) => {
-        if(val.length !== undefined){
-            if (searchBar === 'hidden') setSearchBar(classer('absolute w-full py-2 px-4 bg-white dark:bg-myBlue-dark mt-2 z-10'))
-            else setSearchBar(classer('hidden')) 
-        }
+    const searchBarToggle = () => {
+        if (searchBar === 'hidden') setSearchBar(classer('absolute w-full py-2 px-4 bg-white dark:bg-myBlue-dark mt-2 z-10'))
         else setSearchBar(classer('hidden'))
     }
 
     const searchbyName = () =>{
         const val : string = inputRef.current?.value.toLocaleLowerCase() || "";
-        setinCountries(country => 
+        setinCountries(() => 
             countries.filter(country => country.name.common.toLocaleLowerCase().startsWith(val))
         )
     }
     
     function filterByContinent(continent: string) {
-        setinCountries(country => 
+        setinCountries(() => 
             continent === "All" ? countries : countries.filter(country => country.continents[0] === (continent))
         )
         console.log(inCountries);
@@ -46,7 +43,7 @@ function Home (){
     
     return ( 
         <>
-            <div className={classer('mb-8 sm:flex justify-between')}>
+            <div className={classer('mb-8 justify-between sm:flex')}>
                 <label htmlFor="" className={classer('mb-4 flex py-2 px-4 items-start bg-white dark:bg-myBlue-dark sm:mb-0')}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className={classer("feather feather-search text-gray-500 black:text-white")}><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     <input className={classer('ml-2 bg-transparent w-80 outline-none text-gray-500 black:text-gray-400 text-xs font-medium black:font-normal')} 
