@@ -1,11 +1,23 @@
 import { Link, useParams } from "react-router-dom"
 import { IAllDataItem } from "../../types/IAllDataItem"
-import { countries } from "../../data/allData"
 import { classer } from "../../utility/classer"
+import { useEffect, useState } from "react"
+import { fetchAllData } from "../../data/allData"
 
 function Details() {
     const { countryId } = useParams<{ countryId: string }>()
-    const country: IAllDataItem | undefined = countries.find(country => (String(country.latlng[0]) + String(country.latlng[1])) === countryId?.split(':')[1] ? country : undefined)
+    const [country, setCountry] = useState<IAllDataItem>()
+    useEffect(() =>{
+        if(countryId){
+            fetchAllData().then((data) =>{
+                if(data){
+                    setCountry(
+                        data.find(country => (String(country.latlng[0]) + String(country.latlng[1])) === countryId?.split(':')[1] ? country : undefined)
+                    )
+                }
+            })
+        }
+    },[countryId])
     if (!country) return <div>Country not found {countryId?.split(':')[1]}</div>
     else {
         return (
@@ -18,7 +30,7 @@ function Details() {
                         </label>
                     </Link>
                 </div>
-                <div className={classer('text-white mt-8 sm:flex justify-between')}>
+                <div className={classer('text-white space-x-4 mt-8 sm:flex justify-between ')}>
                     <div className={classer('w-full mb-4 sm:w-2/5 mb-0')}>
                         <img className={classer('w-full')} src={country.flags.png} alt={country.name.common} />
                     </div>

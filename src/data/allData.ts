@@ -1,8 +1,6 @@
 import { IAllDataItem } from "../types/IAllDataItem";
 
-let countries: IAllDataItem[]
-
-async function fetchAllData(): Promise<IAllDataItem[]> {
+export async function fetchAllData(): Promise<IAllDataItem[]> {
     const url = 'https://restcountries.com/v3.1/all?fields=name,nativeName,population,region,subregion,capital,topLevelDomain,currencies,languages,borders,flags,continents,idd,latlng';
     
     try {
@@ -17,12 +15,3 @@ async function fetchAllData(): Promise<IAllDataItem[]> {
         throw error;
     }
 }
-
-fetchAllData().then(data => {
-    // console.log(data);
-    countries = data;
-}).catch(error => {
-    console.error('Error:', error);
-});
-
-export { countries }

@@ -3,7 +3,7 @@ interface Continent {
 }
 
 // var counties: Continent[]
-var counties2: Set<string> = new Set()
+const counties2: Set<string> = new Set()
 
 async function fetchAllData(): Promise<Continent[]> {
     const url = 'https://restcountries.com/v3.1/all?fields=continents';
