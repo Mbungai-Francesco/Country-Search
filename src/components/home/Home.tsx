@@ -133,6 +133,7 @@ function Home() {
 									key={continent.id}
 									onChooseContinent={filterByContinent}
 									continent={continent.name}
+									filterSearchBarToggle={searchBarToggle}
 								></Filterlist>
 							);
 						})}

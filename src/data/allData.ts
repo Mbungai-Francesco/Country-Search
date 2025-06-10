@@ -1,7 +1,7 @@
 import { IAllDataItem } from "../types/IAllDataItem";
 
 export async function fetchAllData(): Promise<IAllDataItem[]> {
-    const url = 'https://restcountries.com/v3.1/all?fields=name,population,region,subregion,capital,currencies,languages,flags,latlng';
+    const url = 'https://restcountries.com/v3.1/all?fields=name,population,region,subregion,capital,currencies,languages,flags,latlng,continents';
     
     try {
         const response = await fetch(url);
