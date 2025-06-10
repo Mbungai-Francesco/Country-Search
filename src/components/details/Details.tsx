@@ -31,7 +31,7 @@ function Details() {
                     </Link>
                 </div>
                 <div className={classer('text-white space-x-4 mt-8 sm:flex justify-between ')}>
-                    <div className={classer('w-full mb-4 sm:w-2/5 mb-0')}>
+                    <div className={classer('w-full sm:w-2/5 mb-0')}>
                         <img className={classer('w-full')} src={country.flags.png} alt={country.name.common} />
                     </div>
                     <div className={classer('w-full text-black dark:text-white sm:w-1/2')}>

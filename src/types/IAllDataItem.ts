@@ -21,17 +21,17 @@ interface IAllDataItem {
     languages: {
         [key: string]: string;
     };
-    borders: string[];
+    // borders: string[];
     flags: {
         png: string,
         svg: string
     };
     population: number;
     continents: string[];
-    idd: {
-        root: string,
-        suffixes: string[]
-    };
+    // idd: {
+    //     root: string,
+    //     suffixes: string[]
+    // };
     latlng: number[];
 }
 
