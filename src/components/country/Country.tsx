@@ -1,13 +1,14 @@
 import { classer } from "../../utility/classer"
 import {IAllDataItem} from "../../types/IAllDataItem"
+import { numDisplay } from "../../utility/numDisplay";
 
 function Country(country : IAllDataItem){
   return (
-    <div className={classer('mb-8 bg-white dark:bg-myBlue-dark pb-6 text-black dark:text-white')}>
-      <img src={country.flags.svg} alt="" className={classer('w-full sm:w-96 sm:h-32')}/> {/*  // handled responsiveness */}
-      <div className={classer('text-sm p-4')}>
+    <div className={classer('mb-8 bg-white dark:bg-myBlue-dark pb-6 text-black dark:text-white flex flex-col items-center')}>
+      <img src={country.flags.svg} alt="" className={classer('w-full sm:w-96 sm:h-32 md:w-96 md:h-52')}/> {/*  // handled responsiveness */}
+      <div className={classer('text-sm p-4 w-full')}>
         <h3 className={classer(' mb-4')}>{country.name.common}</h3>
-        <p>Population: <span className={classer('font-thin')}>{country.population}</span></p>
+        <p>Population: <span className={classer('font-thin')}> {numDisplay(country.population)}</span></p>
         <p>Region: <span className={classer('font-thin')}>{country.region}</span></p>
         <p>Capital: <span className={classer('font-thin')}>{country.capital[0]}</span></p>
       </div>

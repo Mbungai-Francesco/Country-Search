@@ -3,6 +3,7 @@ import { IAllDataItem } from "../../types/IAllDataItem"
 import { classer } from "../../utility/classer"
 import { useEffect, useState } from "react"
 import { fetchAllData } from "../../data/allData"
+import { numDisplay } from "../../utility/numDisplay"
 
 function Details() {
     const { countryId } = useParams<{ countryId: string }>()
@@ -39,7 +40,7 @@ function Details() {
                         <div className={classer('text-xs flex justify-between')}>
                             <div className={classer('mr-2 sm:mr-0')}>
                                 <p className={classer('mb-2')}><span className={classer('font-semibold')}>Native Name:</span>  <span className={classer('opacity-50')}>{Object.values(country.name.nativeName)[0].common}</span></p>
-                                <p className={classer('mb-2')}><span className={classer('font-semibold')}>Population:</span>  <span className={classer('opacity-50')}>{country.population}</span></p>
+                                <p className={classer('mb-2')}><span className={classer('font-semibold')}>Population:</span>  <span className={classer('opacity-50')}>{numDisplay(country.population)}</span></p>
                                 <p className={classer('mb-2')}><span className={classer('font-semibold')}>Region:</span> <span className={classer('opacity-50')}>{country.region}</span></p>
                                 <p className={classer('mb-2')}><span className={classer('font-semibold')}>Sub Region:</span> <span className={classer('opacity-50')}>{country.subregion}</span></p>
                                 <p className={classer('mb-2')}><span className={classer('font-semibold')}>Capital:</span> <span className={classer('opacity-50')}>{country.capital[0]}</span></p>
